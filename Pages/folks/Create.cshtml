@@ -1,0 +1,50 @@
+﻿@page
+@model BirthdayList.Pages.folks.CreateModel
+@{
+}
+
+<br>
+<h2>New Folk</h2>
+
+@if(Model.errorMessage.Length > 0)
+{
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		<strong>@Model.errorMessage</strong>
+		<button class="btn-close" type="button" data-bs-dissmiss="alert" aria-label="close"></button>
+	</div>
+}
+<form method="POST">
+	<div class="row mb-3">
+		<label class="col-sm-6 col-form-label">Name</label>
+		<div class="col-sm-6">
+			<input class="form-control" type="text" name="name" value="@Model.birthdayInfo.name">
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-6 col-form-label">Birthday Date</label>
+		<div class="col-sm-6">
+			<input class="form-control" type="date" name="birthday_date" value="@Model.birthdayInfo.Birthday_Date">
+		</div>
+	</div>
+
+	@if(Model.successMessage.Length > 0)
+	{
+	<div class="row mb-3">
+		<div class="col-sm-9">
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>@Model.successMessage</strong>
+				<button class="btn-close" type="button" data-bs-dissmiss="alert" aria-label="close"></button>
+			</div>
+		</div>
+	</div>
+	}
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/" role="button">Cancle</a>
+		</div>
+	</div>
+</form>

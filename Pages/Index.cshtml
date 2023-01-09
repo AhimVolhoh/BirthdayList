@@ -1,0 +1,34 @@
+﻿@page
+@model BirthdayList.Pages.folks.IndexModel
+@{
+}
+
+<br>
+<h2>List of Folks</h2>
+<a class="btn btn-primary btn-sm" href="/folks/Create">New Folk</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>BirthDate</th>
+			<th>Created At</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.BirthdayList)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.name</td>
+				<td>@item.Birthday_Date</td>
+				<td>@item.created_at</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/folks/Edit?id=@item.id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/folks/Delete?id=@item.id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
